@@ -1,17 +1,9 @@
 import React from "react";
 import "./App.css";
-import Sidebar from './Sidebar';
 
 function SettingsPage() {
   return (
     <div className="app-container">
-      {/* Sidebar */}
-      {/* <div className="sidebar">
-        <button className="sidebar-button">Timer</button>
-        <button className="sidebar-button">Pet</button>
-        <button className="sidebar-button">Settings</button>
-      </div> */}
-      <Sidebar />
 
       {/* Main content */}
       <div className="main-content">
