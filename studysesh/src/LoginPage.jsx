@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './LoginPage.css';
 
-const LoginPage = ({ onlogin }) => {
+const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -19,7 +19,7 @@ const LoginPage = ({ onlogin }) => {
 
       {/* Login form box */}
       <div className="login-container">
-        <form className="login-form" onSubmit={onlogin}>
+        <form className="login-form" onSubmit={onLogin}>
           <h2>Login</h2>
           <div className="form-group">
             <label htmlFor="username">Username</label>
