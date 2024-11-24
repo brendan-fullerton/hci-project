@@ -1,23 +1,23 @@
 import React from "react";
 
-function Sidebar({ currentPage, setCurrentPage }) {
+function Sidebar({ currPage, setCurrPage }) {
   return (
     <div className="sidebar">
       <button
-        onClick={() => setCurrentPage("timer")}
-        className={`sidebar-button ${currentPage === "timer" ? "active" : ""}`}
+        onClick={() => setCurrPage("timer")}
+        className={`sidebar-button ${currPage === "timer" ? "active" : ""}`}
       >
         Timer
       </button>
       <button
-        onClick={() => setCurrentPage("pet")}
-        className={`sidebar-button ${currentPage === "pet" ? "active" : ""}`}
+        onClick={() => setCurrPage("pet")}
+        className={`sidebar-button ${currPage === "pet" ? "active" : ""}`}
       >
         Pet
       </button>
       <button
-        onClick={() => setCurrentPage("settings")}
-        className={`sidebar-button ${currentPage === "settings" ? "active" : ""}`}
+        onClick={() => setCurrPage("settings")}
+        className={`sidebar-button ${currPage === "settings" ? "active" : ""}`}
       >
         Settings
       </button>

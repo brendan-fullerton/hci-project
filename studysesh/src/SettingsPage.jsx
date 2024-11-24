@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Sidebar from './Sidebar';
 
-function TimerPage() {
+function SettingsPage() {
   return (
     <div className="app-container">
       {/* Sidebar */}
@@ -16,22 +16,6 @@ function TimerPage() {
       {/* Main content */}
       <div className="main-content">
         <h1>Welcome to StudySesh!</h1>
-
-        {/* Timer section */}
-        <div className="timer-section">
-          <div className="timer-box">
-            <label>Total Study Time</label>
-            <div>HH:MM:SS</div>
-          </div>
-          <div className="timer-box">
-            <label>Work Interval</label>
-            <div>HH:MM:SS</div>
-          </div>
-          <div className="timer-box">
-            <label>Break Interval</label>
-            <div>HH:MM:SS</div>
-          </div>
-        </div>
 
         {/* Presets section */}
         <div className="presets-section">
@@ -53,4 +37,4 @@ function TimerPage() {
   );
 }
 
-export default TimerPage;
+export default SettingsPage;

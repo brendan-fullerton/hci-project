@@ -1,15 +1,17 @@
 import React from "react";
 import "./App.css";
+import Sidebar from './Sidebar';
 
 function PetPage() {
   return (
     <div className="app-container">
       {/* Sidebar */}
-      <div className="sidebar">
+      {/* <div className="sidebar">
         <button className="sidebar-button">Timer</button>
         <button className="sidebar-button selected">Pet</button>
         <button className="sidebar-button">Settings</button>
-      </div>
+      </div> */}
+      <Sidebar />
 
       {/* Main content */}
       <div className="main-content">

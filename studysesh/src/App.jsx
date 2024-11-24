@@ -31,7 +31,7 @@ function App() {
         // Render the Sidebar and Main Content for Logged-In Users
         <>
           <div className="main-layout">
-            <Sidebar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+            <Sidebar currPage={currentPage} setCurrPage={setCurrentPage} />
             <div className="main-content">{renderPage()}</div>
           </div>
         </>
