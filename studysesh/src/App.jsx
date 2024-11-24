@@ -17,11 +17,12 @@ function App() {
       case "pet":
         return <PetPage />;
       case "settings":
-        return <SettingsPage />;
+        return <SettingsPage onLogin={() => setIsLoggedIn(false)}/>;
       default:
         return <TimerPage />;
     }
   };
+  console.log("Log in status:", {isLoggedIn});
 
   return (
     <div className="app-container">
