@@ -1,5 +1,5 @@
 import React from "react";
-import "./PetPage.css"; // Custom CSS for styling
+import "./App.css";
 
 function PetPage() {
   return (
