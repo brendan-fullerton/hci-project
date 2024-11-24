@@ -5,11 +5,6 @@ const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Login attempted with:', { username, password });
-  };
-
   return (
     <div className="page-container">
       {/* Title at the top of the page */}
