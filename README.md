@@ -2,6 +2,9 @@
 
 The repo for the IS4300 Human Computer Interaction group project. For code, but also for other files such as planning documents and mock visualizations - everything we need for our project will go here.
 
+### Deployed Interface:
+https://hci-project-wfo2wdlhu-brendan-fullertons-projects.vercel.app
+
 ### Members:
 - Brendan Fullerton (Lead Developer): fullerton.b@northeastern.edu
 - Spencer Shao (Project Manager): shao.sp@northeastern.edu
