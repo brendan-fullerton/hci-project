@@ -3,6 +3,7 @@ import LoginPage from "./LoginPage";
 import PetPage from "./PetPage";
 import Sidebar from "./Sidebar";
 import TimerPage from "./TimerPage";
+import SettingsPage from "./SettingsPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,8 +16,8 @@ function App() {
         return <TimerPage />;
       case "pet":
         return <PetPage />;
-      //case "settings":
-        //return <SettingsPage />;
+      case "settings":
+        return <SettingsPage />;
       default:
         return <TimerPage />;
     }

@@ -9,20 +9,10 @@ function SettingsPage() {
       <div className="main-content">
         <h1>Welcome to StudySesh!</h1>
 
-        {/* Presets section */}
-        <div className="presets-section">
-          <h2>Presets</h2>
-          <ul>
-            <li>P1: HH:MM:SS / HH:MM:SS</li>
-            <li>P2: HH:MM:SS / HH:MM:SS</li>
-            <li>P3: HH:MM:SS / HH:MM:SS</li>
-          </ul>
-        </div>
-
         {/* Buttons */}
         <div className="button-section">
-          <button className="start-button">START</button>
-          <button className="custom-timer-button">Custom Timer...</button>
+          <button className="theme-button">Change Theme</button>
+          <button className="logout-button">Log out</button>
         </div>
       </div>
     </div>
