@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './LoginPage.css';
+import { PageContext } from './App.jsx';
 
 const LoginPage = () => {
+  const { page, setPage } = useContext(PageContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -43,7 +45,7 @@ const LoginPage = () => {
               required
             />
           </div>
-          <button type="submit" className="login-button">Login</button>
+          <button onClick={() => {setPage('PetPage')} } type="submit" className="login-button">Login</button>
         </form>
       </div>
     </div>
