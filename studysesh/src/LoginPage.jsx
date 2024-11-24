@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './LoginPage.css';
 
-const LoginPage = () => {
+const LoginPage = ({ onlogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('Login attempted with:', { username, password });
+    onlogin;
   };
 
   return (
