@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 
 function TimerPage() {
@@ -51,4 +51,4 @@ function TimerPage() {
   );
 }
 
-export default App;
+export default TimerPage;
