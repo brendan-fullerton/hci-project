@@ -8,7 +8,6 @@ const LoginPage = ({ onlogin }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('Login attempted with:', { username, password });
-    onlogin;
   };
 
   return (
@@ -20,7 +19,7 @@ const LoginPage = ({ onlogin }) => {
 
       {/* Login form box */}
       <div className="login-container">
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form className="login-form" onSubmit={onlogin}>
           <h2>Login</h2>
           <div className="form-group">
             <label htmlFor="username">Username</label>
