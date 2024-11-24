@@ -1,5 +1,5 @@
-import React from "react";
-import "./App.css"; // Add custom CSS for styling
+import React, { useState } from "react";
+import "./App.css";
 
 function TimerPage() {
   return (
