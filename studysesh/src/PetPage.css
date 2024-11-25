@@ -1,0 +1,114 @@
+.app-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .main-content {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .pet-section {
+    margin-top: 20px;
+  }
+  
+  .pet-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .pet-placeholder {
+    width: 120px;
+    height: 120px;
+    background-color: #e6e6e6;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    margin-right: 20px;
+  }
+  
+  .pet-face {
+    animation: bounce 1s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .change-pet-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .change-pet-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .cosmetics-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .cosmetics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .cosmetic-item {
+    width: 60px;
+    height: 60px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .cosmetic-item img.cosmetic-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .cosmetic-item:hover {
+    border-color: #007bff;
+    transform: scale(1.1);
+  }
+  
+  .cosmetic-item.locked {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .cosmetic-item.locked:hover {
+    transform: none;
+  }
