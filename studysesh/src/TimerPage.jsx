@@ -1,10 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 function TimerPage() {
+  // Timer state variables
+  const [totalTime, setTotalTime] = useState(2 * 60); // Total study time in seconds (25 minutes default)
+  const [workTime, setWorkTime] = useState(1 * 60); // Work interval
+  const [breakTime, setBreakTime] = useState(1 * 60); // Break interval 
+  const [isRunning, setIsRunning] = useState(false);
+  const [currentTime, setCurrentTime] = useState(workTime); // Time count down
+  const [isWorkSession, setIsWorkSession] = useState(true); // Toggle work and break
+
+  // Handle the countdown logic
+  useEffect(() => {
+    let timer;
+    if (isRunning && currentTime > 0) {
+      timer = setInterval(() => {
+        setCurrentTime((prevTime) => prevTime - 1);
+      }, 1000);
+    } else if (isRunning && currentTime === 0) {
+      // Switch between work and break sessions
+      setIsWorkSession(!isWorkSession);
+      setCurrentTime(isWorkSession ? breakTime : workTime);
+    }
+    return () => clearInterval(timer);
+  }, [isRunning, currentTime, isWorkSession, workTime, breakTime]);
+
+  // Helper function to format time
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+  };
+
+  // Start/Stop button handler
+  const handleStartStop = () => {
+    setIsRunning(!isRunning);
+  };
+
+  // Reset button handler
+  const handleReset = () => {
+    setIsRunning(false);
+    setIsWorkSession(true);
+    setCurrentTime(workTime);
+  };
+
   return (
     <div className="app-container">
-
       {/* Main content */}
       <div className="main-content">
         <h1>Welcome to StudySesh!</h1>
@@ -13,32 +54,42 @@ function TimerPage() {
         <div className="timer-section">
           <div className="timer-box">
             <label>Total Study Time</label>
-            <div>HH:MM:SS</div>
+            <div>{formatTime(totalTime)}</div>
           </div>
           <div className="timer-box">
             <label>Work Interval</label>
-            <div>HH:MM:SS</div>
+            <div>{formatTime(workTime)}</div>
           </div>
           <div className="timer-box">
             <label>Break Interval</label>
-            <div>HH:MM:SS</div>
+            <div>{formatTime(breakTime)}</div>
           </div>
+        </div>
+
+        {/* Current timer */}
+        <div className="current-timer">
+          <h2>{isWorkSession ? "Work Time" : "Break Time"}</h2>
+          <h1>{formatTime(currentTime)}</h1>
         </div>
 
         {/* Presets section */}
         <div className="presets-section">
           <h2>Presets</h2>
           <ul>
-            <li>P1: HH:MM:SS / HH:MM:SS</li>
-            <li>P2: HH:MM:SS / HH:MM:SS</li>
-            <li>P3: HH:MM:SS / HH:MM:SS</li>
+            <li>P1: {formatTime(25 * 60)} / {formatTime(5 * 60)}</li>
+            <li>P2: {formatTime(50 * 60)} / {formatTime(10 * 60)}</li>
+            <li>P3: {formatTime(90 * 60)} / {formatTime(15 * 60)}</li>
           </ul>
         </div>
 
         {/* Buttons */}
         <div className="button-section">
-          <button className="start-button">START</button>
-          <button className="custom-timer-button">Custom Timer...</button>
+          <button className="start-button" onClick={handleStartStop}>
+            {isRunning ? "PAUSE" : "START"}
+          </button>
+          <button className="reset-button" onClick={handleReset}>
+            RESET
+          </button>
         </div>
       </div>
     </div>
@@ -46,3 +97,4 @@ function TimerPage() {
 }
 
 export default TimerPage;
+
