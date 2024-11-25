@@ -51,7 +51,7 @@ function TimerPage() {
     setWorkTime(w);
     setBreakTime(b);
     setCurrentTime(w);
-  } 
+  };
 
   return (
     <div className="app-container">
@@ -65,15 +65,36 @@ function TimerPage() {
           <div className="timer-section">
             <div className="timer-box">
               <label>Total Study Time</label>
-              <div>{formatTime(totalTime)}</div>
+              <form>
+                <input
+                  type="text"
+                  name="total"
+                  value={totalTime}
+                  onChange={(e) => setTimes(e.target.value, workTime, breakTime)}>
+                </input>
+              </form>
             </div>
             <div className="timer-box">
               <label>Work Interval</label>
-              <div>{formatTime(workTime)}</div>
+              <form>
+                <input
+                  type="text"
+                  name="work"
+                  value={workTime}
+                  onChange={(e) => setTimes(totalTime, e.target.value, breakTime)}>
+                </input>
+              </form>
             </div>
             <div className="timer-box">
               <label>Break Interval</label>
-              <div>{formatTime(breakTime)}</div>
+              <form>
+                <input
+                  type="text"
+                  name="break"
+                  value={breakTime}
+                  onChange={(e) => setTimes(totalTime, workTime, e.target.value)}>
+                </input>
+              </form>
             </div>
           </div>
 

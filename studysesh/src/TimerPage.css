@@ -45,6 +45,19 @@
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.timer-box input {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  background-color: #fff;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  width: 86%;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
 .timer-presets-container {
   display: flex;
   justify-content: space-between;
