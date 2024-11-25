@@ -1,0 +1,79 @@
+.timer-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto; /* Center the timer section on the page */
+  padding: 20px;
+  background-color: #f4f4f4;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timer-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.timer-box:last-child {
+  margin-bottom: 0; /* Remove margin for the last timer-box */
+}
+
+.timer-box label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.timer-box div {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  background-color: #fff;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.timer-presets-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.current-timer {
+  margin: 20px auto;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  background-color: #f4f4f4;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.current-timer h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.current-timer h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #333;
+}

@@ -1,0 +1,133 @@
+.sidebar {
+  position: relative; /* Makes it stay in place on the left side of the screen */
+  left: 0; /* Aligns to the left edge */
+  top: 0; /* Aligns to the top edge */
+  height: 100vh; /* Makes the sidebar span the full height of the viewport */
+  width: 200px; /* Set the sidebar width */
+  width: 200px; /* Adjust as needed */
+  background-color: #f4f4f4; /* Light background for the sidebar */
+  padding: 10px;
+  border-right: 1px solid #ddd; /* Subtle border to separate sidebar */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Ensure buttons take full width */
+}
+
+.sidebar-button {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-align: left; /* Align text to the left for better readability */
+  background-color: #fff; /* Default button background */
+  border: 1px solid #ccc; /* Subtle border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+.sidebar-button:hover {
+  background-color: #e0e0e0; /* Highlight on hover */
+  border-color: #bbb; /* Slightly darker border on hover */
+}
+
+.sidebar-button.active {
+  background-color: #007bff; /* Active button background (blue) */
+  color: white; /* White text for contrast */
+  border-color: #007bff; /* Match border to background */
+}
+
+.presets-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.presets-section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.presets-section ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.presets-section li {
+  margin-bottom: 15px;
+}
+
+.presets-section li:last-child {
+  margin-bottom: 0;
+}
+
+.presets-section button {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.presets-section button:hover {
+  background-color: #e0e0e0;
+  border-color: #bbb;
+}
+
+.presets-section button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.button-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.button-section button {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.start-button {
+  background-color: #28a745; /* Green for START/PAUSE */
+}
+
+.start-button:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.reset-button {
+  background-color: #dc3545; /* Red for RESET */
+}
+
+.reset-button:hover {
+  background-color: #c82333; /* Darker red on hover */
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+

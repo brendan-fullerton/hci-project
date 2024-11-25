@@ -4,6 +4,7 @@ import PetPage from "./PetPage";
 import Sidebar from "./Sidebar";
 import TimerPage from "./TimerPage";
 import SettingsPage from "./SettingsPage";
+import "./App.css";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import "./TimerPage.css";
 
 function TimerPage() {
   // Timer state variables
@@ -49,20 +50,39 @@ function TimerPage() {
       {/* Main content */}
       <div className="main-content">
         <h1>Welcome to StudySesh!</h1>
+      
+      {/* Timer and presets container */}
+      <div className="timer-presets-container">
+          {/* Timer section */}
+          <div className="timer-section">
+            <div className="timer-box">
+              <label>Total Study Time</label>
+              <div>{formatTime(totalTime)}</div>
+            </div>
+            <div className="timer-box">
+              <label>Work Interval</label>
+              <div>{formatTime(workTime)}</div>
+            </div>
+            <div className="timer-box">
+              <label>Break Interval</label>
+              <div>{formatTime(breakTime)}</div>
+            </div>
+          </div>
 
-        {/* Timer section */}
-        <div className="timer-section">
-          <div className="timer-box">
-            <label>Total Study Time</label>
-            <div>{formatTime(totalTime)}</div>
-          </div>
-          <div className="timer-box">
-            <label>Work Interval</label>
-            <div>{formatTime(workTime)}</div>
-          </div>
-          <div className="timer-box">
-            <label>Break Interval</label>
-            <div>{formatTime(breakTime)}</div>
+          {/* Presets section */}
+          <div className="presets-section">
+            <h2>Presets</h2>
+            <ul>
+              <li>
+                <button>P1: {formatTime(25 * 60)} / {formatTime(5 * 60)}</button>
+              </li>
+              <li>
+                <button>P2: {formatTime(50 * 60)} / {formatTime(10 * 60)}</button>
+              </li>
+              <li>
+                <button>P3: {formatTime(90 * 60)} / {formatTime(15 * 60)}</button>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -70,16 +90,6 @@ function TimerPage() {
         <div className="current-timer">
           <h2>{isWorkSession ? "Work Time" : "Break Time"}</h2>
           <h1>{formatTime(currentTime)}</h1>
-        </div>
-
-        {/* Presets section */}
-        <div className="presets-section">
-          <h2>Presets</h2>
-          <ul>
-            <li>P1: {formatTime(25 * 60)} / {formatTime(5 * 60)}</li>
-            <li>P2: {formatTime(50 * 60)} / {formatTime(10 * 60)}</li>
-            <li>P3: {formatTime(90 * 60)} / {formatTime(15 * 60)}</li>
-          </ul>
         </div>
 
         {/* Buttons */}
