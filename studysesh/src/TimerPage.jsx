@@ -123,7 +123,7 @@ function TimerPage() {
 
         {/* Current timer */}
         <div className="current-timer">
-          <h2>{isWorkSession ? "Work Time" : "Break Time"}</h2>
+          <h2>{isWorkSession ? "Work Time (mm:ss)" : "Break Time (mm:ss)"}</h2>
           <h1>{formatTime(currentTime)}</h1>
         </div>
 
