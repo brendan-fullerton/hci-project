@@ -45,6 +45,14 @@ function TimerPage() {
     setCurrentTime(workTime);
   };
 
+  // Helper function to set total, work, and break times
+  const setTimes = (t, w, b) => {
+    setTotalTime(t);
+    setWorkTime(w);
+    setBreakTime(b);
+    setCurrentTime(w);
+  } 
+
   return (
     <div className="app-container">
       {/* Main content */}
@@ -74,13 +82,19 @@ function TimerPage() {
             <h2>Presets</h2>
             <ul>
               <li>
-                <button>P1: {formatTime(25 * 60)} / {formatTime(5 * 60)}</button>
+                <button onClick={() => {setTimes(30 * 60, 25 * 60, 5 * 60)}}>
+                  P1: {formatTime(25 * 60)} / {formatTime(5 * 60)}
+                </button>
               </li>
               <li>
-                <button>P2: {formatTime(50 * 60)} / {formatTime(10 * 60)}</button>
+                <button onClick={() => {setTimes(60 * 60, 50 * 60, 10 * 60)}}>
+                  P2: {formatTime(50 * 60)} / {formatTime(10 * 60)}
+                </button>
               </li>
               <li>
-                <button>P3: {formatTime(90 * 60)} / {formatTime(15 * 60)}</button>
+                <button onClick={() => {setTimes(100 * 60, 90 * 60, 15 * 60)}}>
+                  P3: {formatTime(90 * 60)} / {formatTime(15 * 60)}
+                  </button>
               </li>
             </ul>
           </div>
