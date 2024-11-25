@@ -11,8 +11,8 @@ const SettingsPage = ({ onLogin }) => {
 
             {/* Buttons */}
             <div className="button-section">
-            <button className="theme-button">Change Theme</button>
-            <button onClick={onLogin} className="logout-button">Log out</button>
+                <button className="theme-button">Change Theme</button>
+                <button onClick={onLogin} className="logout-button">Log out</button>
             </div>
         </div>
         </div>
