@@ -64,7 +64,7 @@ function TimerPage() {
           {/* Timer section */}
           <div className="timer-section">
             <div className="timer-box">
-              <label>Total Study Time</label>
+              <label>Total Study Time (s)</label>
               <form>
                 <input
                   type="text"
@@ -75,7 +75,7 @@ function TimerPage() {
               </form>
             </div>
             <div className="timer-box">
-              <label>Work Interval</label>
+              <label>Work Interval (s)</label>
               <form>
                 <input
                   type="text"
@@ -86,7 +86,7 @@ function TimerPage() {
               </form>
             </div>
             <div className="timer-box">
-              <label>Break Interval</label>
+              <label>Break Interval (s)</label>
               <form>
                 <input
                   type="text"
