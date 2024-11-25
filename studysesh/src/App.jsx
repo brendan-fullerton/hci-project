@@ -23,13 +23,21 @@ function App() {
         return <TimerPage />;
     }
   };
-  console.log("Log in status:", {isLoggedIn});
+
+  // Defaults the first page after logging in to the timer page if one should log out
+  // I.e. Log in --> Timer --> Settings --> Log Out --> Log in --> Timer
+  const defaultToTimer = (loggedIn) => {
+    if (loggedIn && currentPage === "settings") {
+      setCurrentPage("timer");
+    }
+    setIsLoggedIn(loggedIn);
+  };
 
   return (
     <div className="app-container">
       {!isLoggedIn ? (
         // Render the Login Page
-        <LoginPage onLogin={() => setIsLoggedIn(true)} />
+        <LoginPage onLogin={() => defaultToTimer(true)} />
       ) : (
         // Render the Sidebar and Main Content for Logged-In Users
         <>
