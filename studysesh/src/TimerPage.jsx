@@ -69,7 +69,7 @@ function TimerPage() {
                 <input
                   type="text"
                   name="total"
-                  value={totalTime}
+                  value={formatTime(totalTime)}
                   onChange={(e) => setTimes(e.target.value, workTime, breakTime)}>
                 </input>
               </form>
@@ -80,7 +80,7 @@ function TimerPage() {
                 <input
                   type="text"
                   name="work"
-                  value={workTime}
+                  value={formatTime(workTime)}
                   onChange={(e) => setTimes(totalTime, e.target.value, breakTime)}>
                 </input>
               </form>
@@ -91,7 +91,7 @@ function TimerPage() {
                 <input
                   type="text"
                   name="break"
-                  value={breakTime}
+                  value={formatTime(breakTime)}
                   onChange={(e) => setTimes(totalTime, workTime, e.target.value)}>
                 </input>
               </form>
