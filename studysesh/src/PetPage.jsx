@@ -3,8 +3,8 @@ import "./PetPage.css";
 
 // Example cosmetic items
 const cosmetics = [
-  { id: 1, name: "Hat", img: "images/cowboyhat.jpg", locked: false },
-  { id: 2, name: "Scarf", img: "/images/scarf.jpg", locked: false },
+  { id: 1, name: "Star", img: "images/star.png", locked: false },
+  { id: 2, name: "Scarf", img: "/images/scarf.png", locked: false },
   { id: 3, name: "Glasses", img: "/images/glasses.png", locked: true },
   { id: 4, name: "Bow", img: "/images/bow.png", locked: true },
   { id: 5, name: "Crown", img: "/images/crown.png", locked: true },
@@ -13,18 +13,30 @@ const cosmetics = [
 function PetPage() {
   const [view, setView] = useState("main"); // "main" or "choose-pet"
   const [selectedPet, setSelectedPet] = useState("/images/cat.png");
-  const [petName, setPetName] = useState("Whiskers"); // Default pet name
+  const [petNames, setPetNames] = useState({
+    "/images/cat.png": "Whiskers",
+    "/images/dog.jpg": "Buddy",
+  }); // Map to store pet names
   const [isEditing, setIsEditing] = useState(false);
+  const [selectedCosmetic, setSelectedCosmetic] = useState(null); // State for selected cosmetic
 
   // Handle pet name change
   const handleNameChange = (e) => {
-    setPetName(e.target.value);
+    setPetNames({
+      ...petNames,
+      [selectedPet]: e.target.value,
+    });
   };
 
   // Handle pet selection
   const handlePetSelect = (petImg) => {
     setSelectedPet(petImg);
     setView("main");
+  };
+
+  // Handle cosmetic selection
+  const handleCosmeticSelect = (cosmeticImg) => {
+    setSelectedCosmetic(cosmeticImg);
   };
 
   return (
@@ -36,20 +48,34 @@ function PetPage() {
           <div className="pet-section">
             <div className="pet-display">
               <div className="pet-placeholder">
-                <img src={selectedPet} alt="Selected Pet" className="pet-image" />
+                {/* Pet image container */}
+                <div className="pet-container">
+                  <img
+                    src={selectedPet}
+                    alt="Selected Pet"
+                    className="pet-image"
+                  />
+                  {selectedCosmetic && (
+                    <img
+                      src={selectedCosmetic}
+                      alt="Selected Cosmetic"
+                      className="cosmetic-overlay"
+                    />
+                  )}
+                </div>
               </div>
               <div className="pet-info">
                 {isEditing ? (
                   <input
                     type="text"
-                    value={petName}
+                    value={petNames[selectedPet] || ""}
                     onChange={handleNameChange}
-                    onBlur={() => setIsEditing(false)} // Stop editing when the input loses focus
+                    onBlur={() => setIsEditing(false)}
                     className="pet-name-input"
                   />
                 ) : (
                   <div className="pet-name-container">
-                    <span className="pet-name">{petName}</span>
+                    <span className="pet-name">{petNames[selectedPet]}</span>
                     <button
                       className="edit-name-button"
                       onClick={() => setIsEditing(true)}
@@ -74,6 +100,9 @@ function PetPage() {
                   <div
                     key={item.id}
                     className={`cosmetic-item ${item.locked ? "locked" : ""}`}
+                    onClick={() =>
+                      !item.locked && handleCosmeticSelect(item.img)
+                    }
                   >
                     {item.locked ? (
                       <span role="img" aria-label="Locked">
@@ -95,7 +124,6 @@ function PetPage() {
           <div className="choose-pet-section">
             <h2>Choose Your Pet</h2>
             <div className="pets-grid">
-              {/* Render pet options */}
               {["/images/cat.png", "/images/dog.jpg"].map((petImg, index) => (
                 <div
                   key={index}

@@ -56,6 +56,24 @@
   gap: 5px;
 }
 
+.pet-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto; /* Center container */
+}
+
+.cosmetic-overlay {
+  position: absolute;
+  top: 50%; /* Adjust this to move the overlay down */
+  left: 15%; /* Center horizontally relative to the pet */
+  z-index: 2; /* Ensure it is layered on top of the pet */
+  width: 70%; /* Scale size as needed */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain;
+  pointer-events: none; /* Prevent interaction */
+}
+
 .pet-name {
   font-size: 1.2rem;
   font-weight: bold;
