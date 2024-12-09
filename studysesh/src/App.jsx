@@ -11,7 +11,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState("timer");
   const [isStudying, setIsStudying] = useState(false); // Toggle study space
 
-  // Timer things
+  // Timer states
   const [totalTime, setTotalTime] = useState(25 * 60); // Total study time in seconds (default: 25 minutes)
   const [workTime, setWorkTime] = useState(25 * 60); // Work interval
   const [breakTime, setBreakTime] = useState(5 * 60); // Break interval
@@ -19,6 +19,10 @@ function App() {
   const [currentTime, setCurrentTime] = useState(workTime); // Current countdown
   const [isWorkSession, setIsWorkSession] = useState(true); // Toggle work and break
   const [isPaused, setIsPaused] = useState(false); // Pause state
+
+  // Pet states
+  const [selectedPet, setSelectedPet] = useState("/images/cat.png");
+  const [selectedCosmetic, setSelectedCosmetic] = useState(null); // State for selected cosmetic
 
   useEffect(() => {
     let timer;
@@ -47,9 +51,14 @@ function App() {
           currentTime={currentTime} setCurrentTime={setCurrentTime}
           isWorkSession={isWorkSession} setIsWorkSession={setIsWorkSession}
           isPaused={isPaused} setIsPaused={setIsPaused}
+          selectedPet={selectedPet}
+          selectedCosmetic={selectedCosmetic}
         />;
       case "pet":
-        return <PetPage />;
+        return <PetPage 
+          selectedPet={selectedPet} setSelectedPet={setSelectedPet}
+          selectedCosmetic={selectedCosmetic} setSelectedCosmetic={setSelectedCosmetic}
+        />;
       case "settings":
         return <SettingsPage onLogin={() => setIsLoggedIn(false)} />;
       default:

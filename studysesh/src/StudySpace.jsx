@@ -1,7 +1,14 @@
 import React from "react";
 import "./StudySpace.css";
 
-const StudySpace = ({ isWorkSession, currentTime, onReset, onPauseToggle, isPaused, selectedPet }) => {
+const StudySpace = ({ 
+  isWorkSession, 
+  currentTime,
+  onReset, 
+  onPauseToggle, 
+  isPaused, 
+  selectedPet, 
+  selectedCosmetic }) => {
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const secs = seconds % 60;
@@ -11,8 +18,17 @@ const StudySpace = ({ isWorkSession, currentTime, onReset, onPauseToggle, isPaus
   return (
     <div className="study-space-container">
       <h1>Study Time!</h1>
-      <div className="pet-display">
-        <img src={selectedPet} alt="Your Pet" className="pet-image" />
+      <div className="pet-placeholder">
+        <div className="pet-container">
+          <img src={selectedPet} alt="Selected Pet" className="pet-image" />
+              {selectedCosmetic && (
+                <img
+                  src={selectedCosmetic}
+                  alt="Selected Cosmetic"
+                  className="cosmetic-overlay"
+                  />
+              )}
+        </div>
       </div>
       <h2>{isWorkSession ? "Keep working!" : "Time for a break!"}</h2>
       <h1>{formatTime(currentTime)}</h1>

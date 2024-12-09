@@ -10,15 +10,18 @@ const cosmetics = [
   { id: 5, name: "Crown", img: "/images/crown.png", locked: true },
 ];
 
-function PetPage() {
+function PetPage({
+  selectedPet, setSelectedPet,
+  selectedCosmetic, setSelectedCosmetic
+}) {
   const [view, setView] = useState("main"); // "main" or "choose-pet"
-  const [selectedPet, setSelectedPet] = useState("/images/cat.png");
+  // const [selectedPet, setSelectedPet] = useState("/images/cat.png");
   const [petNames, setPetNames] = useState({
     "/images/cat.png": "Whiskers",
     "/images/dog.jpg": "Buddy",
   }); // Map to store pet names
   const [isEditing, setIsEditing] = useState(false);
-  const [selectedCosmetic, setSelectedCosmetic] = useState(null); // State for selected cosmetic
+  // const [selectedCosmetic, setSelectedCosmetic] = useState(null); // State for selected cosmetic
 
   // Handle pet name change
   const handleNameChange = (e) => {

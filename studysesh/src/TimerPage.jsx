@@ -10,9 +10,9 @@ function TimerPage({
   isRunning, setIsRunning, 
   currentTime, setCurrentTime, 
   isWorkSession, setIsWorkSession, 
-  isPaused, setIsPaused }) {
-    
-  const [selectedPet] = useState("/images/cat.png"); // Default selected pet
+  isPaused, setIsPaused,
+  selectedPet, setSelectedPet,
+  selectedCosmetic, setSelectedCosmetic }) {
 
   // Helper function to format time
   const formatTime = (seconds) => {
@@ -157,6 +157,7 @@ function TimerPage({
           onPauseToggle={handlePauseToggle}
           isPaused={isPaused}
           selectedPet={selectedPet} // Pass selected pet
+          selectedCosmetic={selectedCosmetic} // cosmetic
         />
       )}
     </div>
