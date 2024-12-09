@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import StudySpace from "./StudySpace";
-import PetPage from "./PetPage";
 import "./TimerPage.css";
 
 function TimerPage() {
