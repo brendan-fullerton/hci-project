@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import StudySpace from "./StudySpace";
 import "./TimerPage.css";
 
-function TimerPage() {
+function TimerPage({ isStudying, setIsStudying }) {
   // Timer state variables
   const [totalTime, setTotalTime] = useState(25 * 60); // Total study time in seconds (default: 25 minutes)
   const [workTime, setWorkTime] = useState(25 * 60); // Work interval
@@ -10,7 +10,6 @@ function TimerPage() {
   const [isRunning, setIsRunning] = useState(false);
   const [currentTime, setCurrentTime] = useState(workTime); // Current countdown
   const [isWorkSession, setIsWorkSession] = useState(true); // Toggle work and break
-  const [isStudying, setIsStudying] = useState(false); // Toggle study space
   const [isPaused, setIsPaused] = useState(false); // Pause state
   const [selectedPet, setSelectedPet] = useState("/images/cat.png"); // Default selected pet
 

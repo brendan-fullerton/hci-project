@@ -10,18 +10,17 @@ import "./App.css";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentPage, setCurrentPage] = useState("timer");
+  const [isStudying, setIsStudying] = useState(false); // Toggle study space
 
   // Function to dynamically render the current page
   const renderPage = () => {
     switch (currentPage) {
       case "timer":
-        return <TimerPage />;
+        return <TimerPage isStudying={isStudying} setIsStudying={setIsStudying}/>;
       case "pet":
         return <PetPage />;
       case "settings":
         return <SettingsPage onLogin={() => setIsLoggedIn(false)} />;
-      case "studyspace":
-        return <StudySpace />;
       default:
         return <TimerPage />;
     }
