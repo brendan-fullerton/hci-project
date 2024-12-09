@@ -1,32 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import StudySpace from "./StudySpace";
 import "./TimerPage.css";
 
-function TimerPage({ isStudying, setIsStudying }) {
+function TimerPage({ 
+  isStudying, setIsStudying,
+  totalTime, setTotalTime,
+  workTime, setWorkTime, 
+  breakTime, setBreakTime, 
+  isRunning, setIsRunning, 
+  currentTime, setCurrentTime, 
+  isWorkSession, setIsWorkSession, 
+  isPaused, setIsPaused }) {
   // Timer state variables
-  const [totalTime, setTotalTime] = useState(25 * 60); // Total study time in seconds (default: 25 minutes)
-  const [workTime, setWorkTime] = useState(25 * 60); // Work interval
-  const [breakTime, setBreakTime] = useState(5 * 60); // Break interval
-  const [isRunning, setIsRunning] = useState(false);
-  const [currentTime, setCurrentTime] = useState(workTime); // Current countdown
-  const [isWorkSession, setIsWorkSession] = useState(true); // Toggle work and break
-  const [isPaused, setIsPaused] = useState(false); // Pause state
+  // const [totalTime, setTotalTime] = useState(25 * 60); // Total study time in seconds (default: 25 minutes)
+  // const [workTime, setWorkTime] = useState(25 * 60); // Work interval
+  // const [breakTime, setBreakTime] = useState(5 * 60); // Break interval
+  // const [isRunning, setIsRunning] = useState(false);
+  // const [currentTime, setCurrentTime] = useState(workTime); // Current countdown
+  // const [isWorkSession, setIsWorkSession] = useState(true); // Toggle work and break
+  // const [isPaused, setIsPaused] = useState(false); // Pause state
   const [selectedPet, setSelectedPet] = useState("/images/cat.png"); // Default selected pet
 
   // Handle the countdown logic
-  useEffect(() => {
-    let timer;
-    if (isRunning && !isPaused && currentTime > 0) {
-      timer = setInterval(() => {
-        setCurrentTime((prevTime) => prevTime - 1);
-      }, 1000);
-    } else if (isRunning && currentTime === 0) {
-      // Switch between work and break sessions
-      setIsWorkSession(!isWorkSession);
-      setCurrentTime(isWorkSession ? breakTime : workTime);
-    }
-    return () => clearInterval(timer);
-  }, [isRunning, isPaused, currentTime, isWorkSession, workTime, breakTime]);
+  // useEffect(() => {
+  //   let timer;
+  //   if (isRunning && !isPaused && currentTime > 0) {
+  //     timer = setInterval(() => {
+  //       setCurrentTime((prevTime) => prevTime - 1);
+  //     }, 1000);
+  //   } else if (isRunning && currentTime === 0) {
+  //     // Switch between work and break sessions
+  //     setIsWorkSession(!isWorkSession);
+  //     setCurrentTime(isWorkSession ? breakTime : workTime);
+  //   }
+  //   return () => clearInterval(timer);
+  // }, [isRunning, isPaused, currentTime, isWorkSession, workTime, breakTime]);
 
   // Helper function to format time
   const formatTime = (seconds) => {

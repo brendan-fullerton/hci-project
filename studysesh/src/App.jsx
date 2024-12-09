@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LoginPage from "./LoginPage";
 import PetPage from "./PetPage";
 import Sidebar from "./Sidebar";
 import TimerPage from "./TimerPage";
 import SettingsPage from "./SettingsPage";
-import StudySpace from "./StudySpace";
 import "./App.css";
 
 function App() {
@@ -12,11 +11,43 @@ function App() {
   const [currentPage, setCurrentPage] = useState("timer");
   const [isStudying, setIsStudying] = useState(false); // Toggle study space
 
+  // Timer things
+  const [totalTime, setTotalTime] = useState(25 * 60); // Total study time in seconds (default: 25 minutes)
+  const [workTime, setWorkTime] = useState(25 * 60); // Work interval
+  const [breakTime, setBreakTime] = useState(5 * 60); // Break interval
+  const [isRunning, setIsRunning] = useState(false);
+  const [currentTime, setCurrentTime] = useState(workTime); // Current countdown
+  const [isWorkSession, setIsWorkSession] = useState(true); // Toggle work and break
+  const [isPaused, setIsPaused] = useState(false); // Pause state
+
+  useEffect(() => {
+    let timer;
+    if (isRunning && !isPaused && currentTime > 0) {
+      timer = setInterval(() => {
+        setCurrentTime((prevTime) => prevTime - 1);
+      }, 1000);
+    } else if (isRunning && currentTime === 0) {
+      // Switch between work and break sessions
+      setIsWorkSession(!isWorkSession);
+      setCurrentTime(isWorkSession ? breakTime : workTime);
+    }
+    return () => clearInterval(timer);
+  }, [isRunning, isPaused, currentTime, isWorkSession, workTime, breakTime]);
+
   // Function to dynamically render the current page
   const renderPage = () => {
     switch (currentPage) {
       case "timer":
-        return <TimerPage isStudying={isStudying} setIsStudying={setIsStudying}/>;
+        return <TimerPage 
+          isStudying={isStudying} setIsStudying={setIsStudying}
+          totalTime={totalTime} setTotalTime={setTotalTime}
+          workTime={workTime} setWorkTime={setWorkTime}
+          breakTime={breakTime} setBreakTime={setBreakTime}
+          isRunning={isRunning} setIsRunning={setIsRunning}
+          currentTime={currentTime} setCurrentTime={setCurrentTime}
+          isWorkSession={isWorkSession} setIsWorkSession={setIsWorkSession}
+          isPaused={isPaused} setIsPaused={setIsPaused}
+        />;
       case "pet":
         return <PetPage />;
       case "settings":
