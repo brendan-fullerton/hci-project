@@ -1,0 +1,219 @@
+/* Root variables for colors */
+:root {
+  --bg: #344661;
+  --grey-base: #ffffff;
+  --grey-dark: #b7b7b7;
+}
+
+/* General resets */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #344661; /* Matches --bg or any darker color */
+  background: var(--bg);
+  overflow: hidden;
+  margin: 0;
+}
+
+p {
+  padding: 24px;
+  margin: 0;
+  position: absolute;
+  color: #cccccc; /* Adjusted from darken($greyBase, 15%) */
+  font-size: 2.4rem;
+  font-family: "Assistant", sans-serif;
+  top: 0;
+}
+
+p span {
+  color: #aaaaaa; /* Adjusted from darken($greyBase, 35%) */
+}
+
+/* Container for the cat */
+.container {
+  position: absolute;
+  left: 25%; /* Moved the cat container further left */
+  top: 50%;
+  transform: translateY(-50%); /* Keep vertical centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg); /* Add a contrasting background */
+  padding: 40px; /* Increased padding for better visual spacing */
+  border-radius: 20px;
+  z-index: 10; /* Ensure it appears above other elements */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional for a raised effect */
+  width: 500px; /* Increased width for more space */
+  height: 320px; /* Increased height for balance */
+}
+
+.cat {
+  width: 250px;
+  height: 220px;
+  z-index: 20; /* Ensure it's above the container background */
+}
+
+/* Head section */
+.head {
+  background: var(--grey-base);
+  width: 114px;
+  height: 100px;
+  border-radius: 141% 98% 55% 189%;
+  position: absolute;
+  top: 15px;
+  transform: translateY(10px);
+  z-index: 25;
+  animation: sleep 4s ease-out infinite;
+}
+
+@keyframes sleep {
+  0% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+/* Ears */
+.ears div:nth-child(1),
+.ears div:nth-child(2) {
+  height: 20px;
+  width: 2px;
+  position: absolute;
+  left: 64px;
+  top: -28px;
+  border-bottom: 40px solid var(--grey-base);
+  border-left: 30px solid transparent;
+  border-right: 7px solid transparent;
+  border-radius: 14px 46px 0px 28px;
+  transform: rotate(-5deg);
+}
+
+.ears div:nth-child(2) {
+  left: 10px;
+  top: -32px;
+  border-left: 30px solid transparent;
+  border-right: 7px solid transparent;
+  transform: rotate(-22deg);
+}
+
+/* Face */
+.face {
+  display: flex;
+  height: 93%;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  padding-top: 25px;
+}
+
+.eyes {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.eyes div {
+  height: 20px;
+  width: 20px;
+  background: var(--grey-base);
+  box-shadow: inset 3px 4px var(--grey-dark);
+  border-radius: 68% 6%;
+  transform: rotate(219deg);
+}
+
+/* Nose */
+.nose {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nose:before {
+  content: "";
+  height: 0;
+  width: 0;
+  border-top: 6px solid var(--grey-dark);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+/* Mustache */
+.mustache {
+  width: 100%;
+  position: absolute;
+}
+
+.mustache div {
+  height: 12px;
+  width: 3px;
+  background: var(--grey-dark);
+  transform: rotate(90deg);
+}
+
+/* Body */
+.body {
+  background: var(--grey-base);
+  width: 236px;
+  height: 120px;
+  border-radius: 237% 242% 196% 216%;
+  position: absolute;
+  top: 51px;
+}
+
+/* Tail */
+.tail {
+  width: 85px;
+  height: 120px;
+  position: absolute;
+  left: 100px;
+  top: 44%;
+  border-radius: 200px;
+  box-shadow: inset 10px 34px 0px var(--grey-base);
+  transform: rotate(-451deg);
+}
+
+.tail:after {
+  content: "";
+  position: absolute;
+  width: 124px;
+  height: 94px;
+  border-radius: 0 0 264px 218px;
+  top: 57%;
+  box-shadow: inset 10px -10px var(--grey-base);
+}
+
+/* Sleep animation */
+.sleep div {
+  position: absolute;
+  bottom: 50px; /* Lowered the "Z" to make it visible */
+  left: 60px; /* Adjusted to align with the container */
+  font-size: 2rem; /* Slightly increased size for visibility */
+  color: var(--grey-dark);
+  z-index: -1;
+  transition: all 1s ease-out;
+}
+
+@keyframes zzz {
+  0% {
+    transform: translate(10px, 10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(10px, -120px); /* Reduced movement for visibility */
+    opacity: 0;
+  }
+}

@@ -50,11 +50,7 @@ function PetPage() {
               <div className="pet-placeholder">
                 {/* Pet image container */}
                 <div className="pet-container">
-                  <img
-                    src={selectedPet}
-                    alt="Selected Pet"
-                    className="pet-image"
-                  />
+                <img src={selectedPet} alt="Selected Pet" className="pet-image" />
                   {selectedCosmetic && (
                     <img
                       src={selectedCosmetic}

@@ -4,6 +4,7 @@ import PetPage from "./PetPage";
 import Sidebar from "./Sidebar";
 import TimerPage from "./TimerPage";
 import SettingsPage from "./SettingsPage";
+import StudySpace from "./StudySpace";
 import "./App.css";
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
       case "pet":
         return <PetPage />;
       case "settings":
-        return <SettingsPage onLogin={() => setIsLoggedIn(false)}/>;
+        return <SettingsPage onLogin={() => setIsLoggedIn(false)} />;
+      case "studyspace":
+        return <StudySpace />;
       default:
         return <TimerPage />;
     }
