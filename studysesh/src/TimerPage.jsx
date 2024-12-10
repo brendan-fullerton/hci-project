@@ -21,6 +21,14 @@ function TimerPage({
     return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
   };
 
+  const unformatTime = (str) => {
+    const [minutes, seconds] = str.split(":").map(Number);
+    if (isNaN(minutes) || isNaN(seconds)) {
+      throw new Error("Invalid time format. Expected 'MM:SS'.");
+    }
+    return minutes * 60 + seconds;
+  }
+
   // Start/Stop button handler
   const handleStartStop = () => {
     setIsRunning(!isRunning);
@@ -63,41 +71,51 @@ function TimerPage({
             <div className="timer-section">
               <div className="timer-box">
                 <label>Total Study Time (mm:ss)</label>
-                <form>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault(); // Prevent the default form submission behavior (page reload)
+                    setTotalTime(unformatTime(e.target.total.value)); // Access the input value by its name
+                  }}
+                >
                   <input
                     type="text"
                     name="total"
-                    value={formatTime(totalTime)}
-                    onChange={(e) =>
-                      setTimes(e.target.value * 60, workTime, breakTime)
-                    }
+                    defaultValue={formatTime(totalTime)} // Use defaultValue for uncontrolled input
                   />
+                  <button type="submit">Submit</button> {/* Optional button for clarity */}
                 </form>
               </div>
               <div className="timer-box">
                 <label>Work Interval (mm:ss)</label>
-                <form>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault(); // Prevent the default form submission behavior
+                    setWorkTime(unformatTime(e.target.work.value));
+                    setCurrentTime(unformatTime(e.target.work.value));
+                  }}
+                >
                   <input
                     type="text"
                     name="work"
-                    value={formatTime(workTime)}
-                    onChange={(e) =>
-                      setTimes(totalTime, e.target.value * 60, breakTime)
-                    }
+                    defaultValue={formatTime(workTime)} // Use defaultValue for uncontrolled input
                   />
+                  <button type="submit">Submit</button> {/* Optional button for explicit submission */}
                 </form>
               </div>
               <div className="timer-box">
                 <label>Break Interval (mm:ss)</label>
-                <form>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault(); // Prevent the default form submission
+                    setBreakTime(unformatTime(e.target.break.value)); // Update breakTime with the entered value
+                  }}
+                >
                   <input
                     type="text"
                     name="break"
-                    value={formatTime(breakTime)}
-                    onChange={(e) =>
-                      setTimes(totalTime, workTime, e.target.value * 60)
-                    }
+                    defaultValue={formatTime(breakTime)} // Use defaultValue for uncontrolled input
                   />
+                  <button type="submit">Submit</button> {/* Optional submit button */}
                 </form>
               </div>
             </div>
