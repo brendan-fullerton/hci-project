@@ -12,6 +12,7 @@
 
 body {
   height: 100%;
+  font-family:Georgia, 'Times New Roman', Times, serif;
   width: 100%;
   background-color: #344661; /* Matches --bg or any darker color */
   background: var(--bg);
@@ -25,7 +26,7 @@ p {
   position: absolute;
   color: #cccccc; /* Adjusted from darken($greyBase, 15%) */
   font-size: 2.4rem;
-  font-family: "Assistant", sans-serif;
+  font-family:Georgia, 'Times New Roman', Times, serif;
   top: 0;
 }
 

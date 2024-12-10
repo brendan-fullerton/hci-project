@@ -1,12 +1,15 @@
 /* LoginPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
 
 /* General Page Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-  }
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
   
   .page-container {
     display: flex;
@@ -24,6 +27,7 @@ body {
   }
   
   .page-header h1 {
+    font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: 2rem;
     color: #007bff;
     margin: 0;
@@ -48,6 +52,7 @@ body {
   }
   
   .login-form h2 {
+    font-family: 'Roboto', Arial, sans-serif;
     margin-bottom: 2rem; /* Adds space between the title and the first input */
     text-align: center;
     color: #333;
@@ -59,12 +64,14 @@ body {
   }
   
   .form-group label {
+    font-family: 'Roboto', Arial, sans-serif;
     display: block;
     margin-bottom: 0.8rem; /* Space between label and input */
     color: #666;
   }
   
   .form-group input {
+    font-family: 'Roboto', Arial, sans-serif;
     width: 100%;
     padding: 0.8rem;
     border: 1px solid #ccc;
@@ -72,6 +79,7 @@ body {
   }
   
   .login-button {
+    font-family: 'Roboto', Arial, sans-serif;
     width: 100%;
     padding: 0.8rem;
     background-color: #007bff;
