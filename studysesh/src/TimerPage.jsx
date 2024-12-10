@@ -21,6 +21,10 @@ function TimerPage({
     return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
   };
 
+  const [rawTotalTime, setRawTotalTime] = useState(formatTime(totalTime));
+  const [rawWorkTime, setRawWorkTime] = useState(formatTime(workTime));
+  const [rawBreakTime, setRawBreakTime] = useState(formatTime(breakTime));
+
   const unformatTime = (str) => {
     const [minutes, seconds] = str.split(":").map(Number);
     if (isNaN(minutes) || isNaN(seconds)) {
@@ -69,55 +73,58 @@ function TimerPage({
           <div className="timer-presets-container">
             {/* Timer section */}
             <div className="timer-section">
-              <div className="timer-box">
-                <label>Total Study Time (mm:ss)</label>
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault(); // Prevent the default form submission behavior (page reload)
-                    setTotalTime(unformatTime(e.target.total.value)); // Access the input value by its name
-                  }}
-                >
-                  <input
-                    type="text"
-                    name="total"
-                    defaultValue={formatTime(totalTime)} // Use defaultValue for uncontrolled input
-                  />
-                  <button type="submit">Submit</button> {/* Optional button for clarity */}
-                </form>
-              </div>
-              <div className="timer-box">
-                <label>Work Interval (mm:ss)</label>
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault(); // Prevent the default form submission behavior
-                    setWorkTime(unformatTime(e.target.work.value));
-                    setCurrentTime(unformatTime(e.target.work.value));
-                  }}
-                >
-                  <input
-                    type="text"
-                    name="work"
-                    defaultValue={formatTime(workTime)} // Use defaultValue for uncontrolled input
-                  />
-                  <button type="submit">Submit</button> {/* Optional button for explicit submission */}
-                </form>
-              </div>
-              <div className="timer-box">
-                <label>Break Interval (mm:ss)</label>
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault(); // Prevent the default form submission
-                    setBreakTime(unformatTime(e.target.break.value)); // Update breakTime with the entered value
-                  }}
-                >
-                  <input
-                    type="text"
-                    name="break"
-                    defaultValue={formatTime(breakTime)} // Use defaultValue for uncontrolled input
-                  />
-                  <button type="submit">Submit</button> {/* Optional submit button */}
-                </form>
-              </div>
+            <div className="timer-box">
+              <label>Total Study Time (mm:ss)</label>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setTotalTime(unformatTime(rawTotalTime));
+                }}
+              >
+                <input
+                  type="text"
+                  name="total"
+                  value={rawTotalTime} // Local state for raw input
+                  onChange={(e) => setRawTotalTime(e.target.value)} // Update raw input state
+                />
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+            <div className="timer-box">
+              <label>Work Interval (mm:ss)</label>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setWorkTime(unformatTime(rawWorkTime));
+                  setCurrentTime(unformatTime(rawWorkTime));
+                }}
+              >
+                <input
+                  type="text"
+                  name="work"
+                  value={rawWorkTime}
+                  onChange={(e) => setRawWorkTime(e.target.value)}
+                />
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+            <div className="timer-box">
+              <label>Break Interval (mm:ss)</label>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setBreakTime(unformatTime(rawBreakTime));
+                }}
+              >
+                <input
+                  type="text"
+                  name="break"
+                  value={rawBreakTime}
+                  onChange={(e) => setRawBreakTime(e.target.value)}
+                />
+                <button type="submit">Submit</button>
+              </form>
+            </div>
             </div>
 
             {/* Presets section */}
@@ -126,21 +133,60 @@ function TimerPage({
               <ul>
                 <li>
                   <button
-                    onClick={() => setTimes(25 * 60, 25 * 60, 5 * 60)}
+                    onClick={() => {
+                      const newTotal = 25 * 60;
+                      const newWork = 25 * 60;
+                      const newBreak = 5 * 60;
+
+                      setTotalTime(newTotal);
+                      setWorkTime(newWork);
+                      setBreakTime(newBreak);
+                      setCurrentTime(newWork);
+
+                      setRawTotalTime(formatTime(newTotal));
+                      setRawWorkTime(formatTime(newWork));
+                      setRawBreakTime(formatTime(newBreak));
+                    }}
                   >
                     P1: 25 min / 5 min
                   </button>
                 </li>
                 <li>
                   <button
-                    onClick={() => setTimes(50 * 60, 50 * 60, 10 * 60)}
+                    onClick={() => {
+                      const newTotal = 50 * 60;
+                      const newWork = 50 * 60;
+                      const newBreak = 10 * 60;
+
+                      setTotalTime(newTotal);
+                      setWorkTime(newWork);
+                      setBreakTime(newBreak);
+                      setCurrentTime(newWork);
+
+                      setRawTotalTime(formatTime(newTotal));
+                      setRawWorkTime(formatTime(newWork));
+                      setRawBreakTime(formatTime(newBreak));
+                    }}
                   >
                     P2: 50 min / 10 min
                   </button>
                 </li>
                 <li>
                   <button
-                    onClick={() => setTimes(90 * 60, 90 * 60, 15 * 60)}
+                    onClick={() => {
+                      const newTotal = 90 * 60;
+                      const newWork = 90 * 60;
+                      const newBreak = 15 * 60;
+
+                      setTotalTime(newTotal);
+                      setWorkTime(newWork);
+                      setBreakTime(newBreak);
+                      setCurrentTime(newWork);
+
+                      setRawTotalTime(formatTime(newTotal));
+                      setRawWorkTime(formatTime(newWork));
+                      setRawBreakTime(formatTime(newBreak));
+                    }}
                   >
                     P3: 90 min / 15 min
                   </button>
